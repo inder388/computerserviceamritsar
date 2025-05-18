@@ -31,17 +31,20 @@
         }
         
         /* Header Styles */
-header {
-    padding: 1.5rem 5%;
-    display: flex;
-    justify-content: space-between; /* This pushes logo left and menu right */
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    top: 0;
-}
+<header>
+    <div class="logo">Inder Pal</div>
+    <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
 /* Mobile menu toggle button */
 .menu-toggle {
