@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://inder388.github.io/computerserviceamritsar/sitemap.xml
