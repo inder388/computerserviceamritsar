@@ -627,44 +627,46 @@
         <p>© 2023 Inder Pal Computer Services. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mobileNav = document.querySelector('.mobile-nav');
-        const closeBtn = document.querySelector('.close-btn');
-        
-        menuToggle.addEventListener('click', () => {
-            mobileNav.classList.add('active');
-        });
-        
-        closeBtn.addEventListener('click', () => {
+  <script>
+    // Mobile Menu Toggle - Fixed Version
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const closeBtn = document.querySelector('.close-btn');
+    const navLinks = document.querySelectorAll('.mobile-nav a');
+    
+    // Toggle mobile menu when hamburger icon is clicked
+    menuToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+    });
+    
+    // Close mobile menu when close button is clicked
+    closeBtn.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+    });
+    
+    // Close mobile menu when any nav link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
             mobileNav.classList.remove('active');
         });
-        
-        // Close mobile menu when clicking on a link
-        const mobileLinks = document.querySelectorAll('.mobile-nav a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-            });
+    });
+    
+    // Smooth scrolling for all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         });
-        
-        // Smooth scrolling for all links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    });
+</script>
 </body>
 </html>
